@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataListAdapterVM"
+            type="com.example.mvvmbasicproject.viewModel.DataListAdapterVM" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#0088FF"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{dataListAdapterVM::onClick}">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/imgView_repo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                bind:loadGlide="@{dataListAdapterVM.imgUrl}" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toStartOf="@+id/imgView_star"
+                android:layout_toEndOf="@+id/imgView_repo"
+                android:text="@{dataListAdapterVM.name}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/imgView_repo"
+                android:maxLines="20"
+                android:text="@{dataListAdapterVM.detail}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+            <TextView
+                android:id="@+id/tv_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:text="@{dataListAdapterVM.star}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+            <ImageView
+                android:id="@+id/imgView_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toStartOf="@+id/tv_star"
+                android:src="@drawable/ic_star_black_18dp" />
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

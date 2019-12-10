@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="detailActivityVM"
+            type="com.example.mvvmbasicproject.viewModel.DetailActivityVM" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/owner_image"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:onClick="@{detailActivityVM::onOwnerImage}"
+                bind:loadGlide="@{detailActivityVM.ownerImgUrl}" />
+
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_image"
+                android:layout_alignParentStart="true"
+                android:layout_margin="8dp"
+                android:layout_toStartOf="@+id/repo_start_image"
+                android:text="@{detailActivityVM.fullName}"
+                android:textAppearance="@android:style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullName"
+                android:layout_margin="8dp"
+                android:text="@{detailActivityVM.detail}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+            <TextView
+                android:id="@+id/repo_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_image"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:text="@{detailActivityVM.star}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+            <ImageView
+                android:id="@+id/repo_start_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/owner_image"
+                android:layout_margin="8dp"
+                android:layout_toStartOf="@+id/repo_star"
+                android:src="@drawable/ic_call_split_black_18dp" />
+
+            <TextView
+                android:id="@+id/repo_fork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repo_star"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:text="@{detailActivityVM.fork}"
+                android:textAppearance="@android:style/TextAppearance" />
+
+            <ImageView
+                android:id="@+id/repo_fork_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/repo_star"
+                android:layout_margin="4dp"
+                android:layout_toStartOf="@+id/repo_star"
+                android:src="@drawable/ic_star_black_18dp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
